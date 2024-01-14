@@ -11,7 +11,6 @@ def getAvgPitch(file, samplerate):
     win_s = 4096
     hop_s = 512 
 
-    samplerate = 16000
     s = source(file, samplerate, hop_s)
     samplerate = s.samplerate
 
