@@ -1,12 +1,11 @@
-import os
 import wave
 import glob
+import numpy as np
+from prettytable import PrettyTable
 
 def getAvgPitch(file, samplerate):
 
-    import sys
     from aubio import source, pitch
-    import numpy as np
 
     win_s = 4096
     hop_s = 512 
@@ -21,25 +20,22 @@ def getAvgPitch(file, samplerate):
     pitch_o.set_tolerance(tolerance)
 
     pitches = []
-    confidences = []
-
-    total_frames = 0
 
     while True:
         samples, read = s()
         pitch = pitch_o(samples)[0]
         pitches += [pitch]
-        confidence = pitch_o.get_confidence()
-        confidences += [confidence]
-        total_frames += read
         if read < hop_s: break
 
-    print(file, str(np.array(pitches).mean()) + " hz")
+    return [file, samplerate, str(np.array(pitches).mean()) + " hz"]
+
+table = PrettyTable(['File', 'Sample Rate', 'Pitch'])
 
 files = glob.glob("./*.wav")
 
 for file_name in files:
     with wave.open(file_name, "rb") as wave_file:
         frame_rate = wave_file.getframerate()
-        getAvgPitch(file_name, frame_rate)
+        table.add_row(getAvgPitch(file_name, frame_rate))
         
+print(table)
