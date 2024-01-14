@@ -2,6 +2,8 @@
 
 For Allen
 
-See: https://stackoverflow.com/questions/54612204/trying-to-get-the-frequencies-of-a-wav-file-in-python
+Knowledge for this repo came from:
 
-and: https://stackoverflow.com/questions/43490887/check-audios-sample-rate-using-python
+here: https://stackoverflow.com/questions/54612204/trying-to-get-the-frequencies-of-a-wav-file-in-python
+
+and here: https://stackoverflow.com/questions/43490887/check-audios-sample-rate-using-python
