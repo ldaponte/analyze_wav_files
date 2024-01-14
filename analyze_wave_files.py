@@ -31,7 +31,7 @@ def getAvgPitch(file, samplerate):
 
 table = PrettyTable(['File', 'Sample Rate', 'Pitch'])
 
-files = glob.glob("./*.wav")
+files = glob.glob("./audio_files/*.wav")
 
 for file_name in files:
     with wave.open(file_name, "rb") as wave_file:
