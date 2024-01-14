@@ -1,5 +1,7 @@
 aubio==0.4.9
 numpy==1.26.3
+prettytable==3.9.0
 setuptools==69.0.3
 Wave==0.0.2
+wcwidth==0.2.13
 wheel==0.42.0
