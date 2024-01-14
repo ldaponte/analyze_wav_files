@@ -39,7 +39,7 @@ def getAvgPitch(file, samplerate):
 files = glob.glob("./*.wav")
 
 for file_name in files:
-    with wave.open("./full_5gal_single_tap.wav", "rb") as wave_file:
+    with wave.open(file_name, "rb") as wave_file:
         frame_rate = wave_file.getframerate()
         getAvgPitch(file_name, frame_rate)
         
